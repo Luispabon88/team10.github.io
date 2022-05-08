@@ -21,7 +21,7 @@ Dentro de Market Place, buscamos la aplicación Colaboratory (en la imagen sigui
      width="400"
      height="200">
 
-Se procede a crear un archivo nuevo de tipo colaborativo, donde se realizará la programación. Como primer paso debemos realizar la instalación de la libreria <b>uproot</b>. Esta nos permitirá leer el archivo .ROOT y poder procesarlo. NOTA: PAra ejecutar el código se debe dar click en un botón "play" a la izquierda del código.
+Se procede a crear un archivo nuevo de tipo colaborativo, donde se realizará la programación. Como primer paso debemos realizar la instalación de la libreria <b>uproot</b>. Esta nos permitirá leer el archivo .ROOT y poder procesarlo. NOTA: Para ejecutar el código se debe dar click en un botón "play" a la izquierda del código.
 
 ```markdown
 !pip install uproot awkward #
@@ -58,7 +58,17 @@ Como un paso de verificación, se puede usar el código a continuación que perm
 ```markdown
 file['Events'].show()
 ```
-Procederemos a crear los archivos en formato pandas. Esto es para poder discriminar los eventos donde se detectan muones y electrones.
+Declararemos la variable <b>events</b> para proceder a crear los archivos panda.
+```markdown
+events = file['Events']
+```
+
+Los archivos panda nos permitiran el análisis discriminado de data. Esto es para poder separar los eventos donde se detectan muones y electrones. Como podemos observar en la siguiente figura, se inicia con el proceso de  producción de un boson de Higgs, la partículas entrantes son gluones, uno de cada protón de la colisión. Luego se desintegra en un par de bosones Z  y posteriormente vuelve a desintegrarse en 4 leptones
+
+<img src="004_signal.PNG">
+
+
+
 
 
 ```markdown
