@@ -5,8 +5,10 @@
 
 -Generar un gráfico en matplotlib (o similar) de la masa invariante de 4 leptones.
 
-## Codificación
-### Generar código/Script para convertir los datasets a formato comercial.
+## Codificación de solución
+Dentro del repositorio de GitHub se han creado dos archivos: <b>root_to_csv.ipynb</b> y <b>CMS_Higgs_plot.ipynb</b>. EL primero describe la transformación del archivo .ROOT original a .csv, mientras el segundo describe el manejo de la data para crear un histograma.
+
+### Pasos previos
 
 Hemos obtenido la data desde el sitio web [opendata CERN](http://opendata.web.cern.ch/record/12361), donde usando la herramienta colaborativa de Google desde el Google Drive, se ha originado un archivo codificado en Python. El archivo obtenido es un .ROOT, el cual no es comercial ni fácil de utilizar directamente, lo cual limita su uso. Uno de los objetivos principales de nuestro trabajo es crear un código en Python que convierta este .ROOT en un archivo separado por comas en EXCEL, el cual permita la difusión del trabajo y deje la data al alcance de todos.
 
@@ -22,7 +24,10 @@ Dentro de Market Place, buscamos la aplicación Colaboratory (en la imagen sigui
      width="400"
      height="200">
 
-Se procede a crear un archivo nuevo de tipo colaborativo, donde se realizará la programación. Como primer paso debemos realizar la instalación de la libreria <b>uproot</b>. Esta nos permitirá leer el archivo .ROOT y poder procesarlo. NOTA: Para ejecutar el código se debe dar click en un botón "play" a la izquierda del código.
+Se procede a crear un archivo nuevo de tipo colaborativo, donde se realizará la programación. 
+
+### Conversión de archivo .ROOT a formato Excel .csv
+Como primer paso debemos realizar la instalación de la libreria <b>uproot</b>. Esta nos permitirá leer el archivo .ROOT y poder procesarlo. NOTA: Para ejecutar el código se debe dar click en un botón "play" a la izquierda del código.
 
 ```markdown
 !pip install uproot awkward #
@@ -95,22 +100,29 @@ Con los pasos anteriores verificamos los valores NaN en las columnas asociadas a
 datos_pandas_totales = pd.concat([datos_pandas,datos_pandas2])
 datos_pandas_totales.sort_index(axis = 0, level = 0, inplace = True)
 ```
-Como último paso, realizaremos la obtención de la data en un formato Excel .csv utilizando la codificación siguiente. La última línea de codificación es para descargar el archivo creado, que para nuestro caso se llamará <b>datos_totales.csv</b>.
+Como último paso, realizaremos la obtención de la data en un formato Excel .csv utilizando la codificación siguiente. La última línea de codificación es para descargar el archivo creado, que para nuestro caso se llamará <b>SMHiggsToZZTo4L.csv</b>.
 
 ```markdown
 from google.colab import files
 
-datos_pandas_totales.to_csv('datos_totales.csv', encoding = 'utf-8-sig') 
-files.download('datos_totales.csv')
+datos_pandas_totales.to_csv('SMHiggsToZZTo4L.csv', encoding = 'utf-8-sig') 
+files.download('SMHiggsToZZTo4L.csv')
 ```
 
-## Procesamiento de datos
+## Manejo de CMS Data y Plot de Higgs
+
 Una vez se tenga la data en un formato sencillo, se puede trabajar con ella para realizar cálculos y gráficas.
-Para cargar este archivo, se utiliza la codificación siguiente. Declaramos la variable <b>datos_desde_csv</b> para colocar el arreglo de datos en el programa.
+Declararemos las librerias necesarias para la programación. Consta de las antes descritas panda, numpy y matplotlib.pyplot.
 
 ```markdown
-datos_desde_csv = pd.read_csv('datos_totales.csv', index_col = [0,1])
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 ```
+
+
+
+
 Lo siguiente es realizar la búsqueda de datos de importancia para el ánalisis.
 ```markdown
 df_4mu = datos_desde_csv.loc[datos_desde_csv['nMuon'] >= 4] #numero de muones mayor o igual a 4
