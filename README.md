@@ -125,6 +125,34 @@ from google.colab import files
 uploaded = files.upload()
 ```
 Al ejecutarse, nuevamente se mostrarán dos botones, de los cuales, <b>"Encontrar Archivo"</b> le permitirá subir el archivo con extensión .csv requerido. En nuestro caso será <b>SMHiggsToZZTo4L.csv</b> obtenido en la procedimiento anterior.
+El siguiente paso es ingresar el contenido del archivo .csv a una variable para el manejo de los datos>
+```markdown
+datos_desde_csv = pd.read_csv('SMHiggsToZZTo4L.csv', index_col = [0,1])
+```
+### Primera fase: filtrado de eventos
+
+Dentro del reto, se ha planteado la visualización de histograma de un ejemplo análisis de Higgs para 4 leptones. Por tanto, de todos los datos que se tiene, se debe escoger solo aquellos eventos que tuvieron como resultado 4 leptones a partir de los 2 muones Z.
+
+Se plantea el código siguiente:
+```markdown
+#Se eligen los eventos que tiene 4 o más muones
+df_4mu = datos_desde_csv.loc[datos_desde_csv['nMuon'] >= 4]
+
+#Se busca que los datos tengan buen aislamiento
+df_iso_4mu = df_4mu.loc[np.abs(df_4mu['Muon_pfRelIso04_all']) < 0.4].copy()
+
+#Se busca que los datos esten cercanos al vértice principal y que tengan poca incertidumbre
+df_iso_4mu['Muon_ip3d'] = np.sqrt(np.power(df_iso_4mu['Muon_dxy'],2) + np.power(df_iso_4mu['Muon_dz'],2))
+df_iso_4mu['Muon_sip3d'] = np.divide( df_iso_4mu['Muon_ip3d'],np.sqrt(np.power(df_iso_4mu['Muon_dxyErr'],2) + np.power(df_iso_4mu['Muon_dzErr'],2)))
+df_uncer_4mu = df_iso_4mu.loc[(df_iso_4mu['Muon_sip3d']<4) & (np.abs(df_iso_4mu['Muon_dxy'])< 0.5)&(np.abs(df_iso_4mu['Muon_dz'])<1.0)].copy()
+
+#Nos aseguramos que solo quedan 4 muones en cada evento
+df_uncer_4mu['rnMuon'] = df_uncer_4mu.groupby(level = 0).run.transform('sum')
+
+#Se busca que hayan 4 muones, 2 con carga positiva y 2 con carga negativa
+df_uncer_4mu['Muon_Charge_Sum'] = df_uncer_4mu.groupby(level = 0).Muon_charge.transform('sum')
+df_filt_4mu = df_uncer_4mu.loc[(df_uncer_4mu['rnMuon']==4) & (df_uncer_4mu['Muon_Charge_Sum'] == 0.0)]
+```
 
 
 
