@@ -166,6 +166,9 @@ Los datos del CERN vienen en vectores de momentum en 4D (cuadrimomentums) con la
 
 donde pt es el momentum transverso, eta la pseudorapidez, phi el \'angulo de azimuth y m la masa. Para poder pasar estos vectores al vector de cuadrimomentum en coordenadas cartesianas, debemos hacer.
 
+<img src="to_cartesian.png">
+
+El código a continuación se encarga de hacer estos cálculos
 
 ```markdown
 #Definimos la función que calcula la masa a partir de 2 cuadrimomentums
@@ -207,15 +210,20 @@ def best_Z(df):
   final.set_index(['entry','subentry'], drop = True, inplace = True)
   return final
   ```
-  asdfg
+  
+  Luego de tener las funciones listas se las aplicamos a los datos. Tratando de hacerlo lo más vectorizado posible, al tomar set de datos por evento. Si tomáramos los datos uno por uno, el programa tardaría más en realizar estos cálculos. 
   
   ```markdown
 #Señalamos en una nueva columna cuáles son los mejores muones que logran crear un bosón Z
 df_bestZ_4mu = df_filt_4mu.groupby(level = 0).apply(best_Z)
   ```
-asdgg
+
 
 ### Tercera fase: 
+
+En esta fase calculamos la separación entre los muones que deseamos utilizar para reconstruir el bosón Z. Para eso utilizamos el parámetro Delta R que viene dado por
+
+
 
   ```markdown
 #Creamos una función que calcule la diferencia en pseudorapidez y el ángulo entre 2 vectores
