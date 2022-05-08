@@ -67,7 +67,7 @@ Los archivos panda nos permitiran el análisis discriminado de data. Esto es par
 
 <img src="004_signal.PNG">
 
-Realizamos la extensión .arrays para seleccionar las columnas que contengan especificos según la partícula a analizar.
+Realizamos la extensión <b>.arrays</b> para seleccionar las columnas que contengan especificos según la partícula a analizar.
 
 ### Para datos de muones:
 
@@ -92,11 +92,19 @@ Con los pasos anteriores verificamos los valores NaN en las columnas asociadas a
 datos_pandas_totales = pd.concat([datos_pandas,datos_pandas2])
 datos_pandas_totales.sort_index(axis = 0, level = 0, inplace = True)
 ```
+Como último paso, realizaremos la obtención de la data en un formato Excel .csv utilizando la codificación:
+
+```markdown
+from google.colab import files
+
+datos_pandas_totales.to_csv('datos_totales.csv', encoding = 'utf-8-sig') 
+files.download('datos_totales.csv')
+```
+## Procesamiento de datos
 
 
-
-
-## Equipo 10: Los Discípulos del Modelo Estándar - Hackaton 2022 CoAfina
+## Información de Colaboradores
+### Equipo 10: Los Discípulos del Modelo Estándar - Hackaton 2022 CoAfina
 - Gabriel Barreto
 - Lizbeth Lara
 - Senayda Ortiz
