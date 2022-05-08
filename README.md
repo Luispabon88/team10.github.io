@@ -44,8 +44,22 @@ from google.colab import files
 uploaded = files.upload()
 ```
 Debemos verificar que el archivo termine de cargarse correctamente. Para esto, deberemos observar el progreso y que la barra termine de cargar. La siguiente imagen muestra el mensaje final del proceso:
-```markdown
 <img src="003_100.PNG">
+
+Lo siguiente es leer el archivo cargado usando la librería <b>uproot</b> para poder manejar los datos.
+
+```markdown
+file = uproot.open("SMHiggsToZZTo4L.root")
+```
+
+Como un paso de verificación, se puede usar el código a continuación que permite visualizar las variables (head columns) del archivo de datos.
+```markdown
+file['Events'].show()
+```
+
+
+```markdown
+prueba
 ```
 
 ### Markdown
