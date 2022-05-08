@@ -11,8 +11,13 @@
 
 Hemos obtenido la data desde el sitio web [opendata CERN](http://opendata.web.cern.ch/record/12361), donde usando la herramienta colaborativa de Google desde el Google Drive, se ha originado un archivo codificado en Python. El archivo obtenido es un .ROOT, el cual no es comercial ni fácil de utilizar directamente, lo cual limita su uso. Uno de los objetivos principales de nuestro trabajo es crear un código en Python que convierta este .ROOT en un archivo separado por comas en EXCEL, el cual permita la difusión del trabajo y deje la data al alcance de todos.
 
-Lo primero que debemos hacer es instalar en el Google Drive la herramienta Colaborate:
+Lo primero que debemos hacer es instalar en el Google Drive la herramienta Colaborate, disponible en la sección de más herramientas al dar click en el + de Google Drive en la parte superior izquierda.
 
+<img src="001_instalarColGoogle.png"
+     width="300"
+     height="300">
+
+Dentro de Market Place, buscamos la 
 Para esto, debemos realizar la instalación de la libreria <b>uproot</b>
 
 ```markdown
