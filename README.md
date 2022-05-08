@@ -1,4 +1,8 @@
-## Tributo al Bosón de Higgs
+## Desafío: 
+-Generar código/Script para convertir los datasets a formato comercial.
+-Convertir datasets en formatos alternos comerciales (se escogió .csv).
+-Usar solo librerías python comerciales y de libre accsero para análisis de data parcial del Bosón de Higgs.
+-Generar un gráfico en matplotlib (o similar) de la masa invariante de 4 leptones.
 
 You can use the [editor on GitHub](https://github.com/Luispabon88/luispabon88.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
