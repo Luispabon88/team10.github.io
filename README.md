@@ -6,13 +6,13 @@
 -Generar un gráfico en matplotlib (o similar) de la masa invariante de 4 leptones.
 
 ## Codificación de solución
-Dentro del repositorio de GitHub se han creado dos archivos: <b>root_to_csv.ipynb</b> y <b>CMS_Higgs_plot.ipynb</b>. EL primero describe la transformación del archivo .ROOT original a .csv, mientras el segundo describe el manejo de la data para crear un histograma.
+Dentro del repositorio de GitHub se han creado dos archivos: <b>root_to_csv.ipynb</b> y <b>CMS_Higgs_plot.ipynb</b>. El primero describe la transformación del archivo .ROOT original a .csv, mientras el segundo describe el manejo de la data para crear un histograma.
 
 ### Pasos previos
 
-Hemos obtenido la data desde el sitio web [opendata CERN](http://opendata.web.cern.ch/record/12361), donde usando la herramienta colaborativa de Google desde el Google Drive, se ha originado un archivo codificado en Python. El archivo obtenido es un .ROOT, el cual no es comercial ni fácil de utilizar directamente, lo cual limita su uso. Uno de los objetivos principales de nuestro trabajo es crear un código en Python que convierta este .ROOT en un archivo separado por comas en EXCEL, el cual permita la difusión del trabajo y deje la data al alcance de todos.
+Hemos obtenido la data desde el sitio web [opendata CERN](http://opendata.web.cern.ch/record/12361), donde usando la herramienta colaborativa de Google desde el Google Drive, se ha originado un archivo codificado en Python. El archivo obtenido es un .ROOT, el cual no es comercial ni fácil de utilizar directamente, lo cual limita su uso. Uno de los objetivos principales de nuestro trabajo es crear un código en Python que convierta este .ROOT en un archivo separado por comas, el cual permita la difusión del trabajo y deje la data al alcance de todos.
 
-Lo primero que debemos hacer es instalar en el Google Drive la herramienta Colaboratory, disponible en la sección de más herramientas al dar click en el <b>+</b> de Google Drive en la parte superior izquierda.
+Lo primero que debemos hacer es instalar en Google Drive la herramienta Colaboratory, disponible en la sección de más herramientas al dar click en el <b>+</b> de Google Drive en la parte superior izquierda.
 
 <img src="001_instalarColGoogle.png"
      align="center"
@@ -29,7 +29,7 @@ Dentro de Market Place, buscamos la aplicación Colaboratory (en la imagen sigui
 Se procede a crear un archivo nuevo de tipo colaborativo, donde se realizará la programación. 
 
 ### Conversión de archivo .ROOT a formato Excel .csv
-Como primer paso debemos realizar la instalación de la libreria <b>uproot</b>. Esta nos permitirá leer el archivo .ROOT y poder procesarlo. NOTA: Para ejecutar el código se debe dar click en un botón "play" a la izquierda del código.
+Como primer paso debemos realizar la instalación de la libreria <b>uproot</b>. Esta nos permitirá leer el archivo .ROOT y poder procesarlo. NOTA: Para ejecutar el código se debe dar click en un botón "play" a la izquierda del código o se debe apretar Shift+Enter en cada celda.
 
 ```markdown
 !pip install uproot awkward #
@@ -40,12 +40,9 @@ A continuación, se deben declarar las librerias a utilizar. Para resolver nuest
 ```markdown
 import uproot
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy import constants
 ```
 
-Como observamos, necesitaremos de la libreria uproot para abrir el .ROOT, de pandas para manejo y análisis de estructuras de datos, numpy para manejo de datos y cálculos asociados, además de matplotlib.pyplot para las gráficas necesarias. La librería scipy se utiliza para los valores de las constantes en la Física, de caso puntual, la constante de la velocidad de la luz en el vacío.
+Como observamos, necesitaremos de la libreria uproot para abrir el .ROOT y la librería de pandas para manejo y análisis de estructuras de datos.
 
 Procederemos a subir el archivo con la data a procesar. En el código mostrado a continuación, al ser ejecutado, se mostrarán dos botones <b>Elegir Archivo</b> y <b>Cancelar</b> mientras ejecuta la segunda línea y espera por su decisión. <b>Elegir Archivo</b> le permitirá buscar en su computador el archivo de datos. Para nuestra solución, utilizaremos el archivo <b>SMHiggsToZZTo4L.root</b>.
 ```markdown
@@ -68,12 +65,12 @@ file['Events'].show()
 ```
 <img src="005_event.PNG">
 
-Declararemos la variable <b>events</b> para proceder a crear los archivos panda.
+Declararemos la variable <b>events</b> para proceder a crear los DataFrames de pandas.
 ```markdown
 events = file['Events']
 ```
 
-Los archivos panda nos permitiran el análisis discriminado de data. Esto es para poder separar los eventos donde se detectan muones y electrones. Como podemos observar en la siguiente figura, se presenta un diagrama de Feynman, el cual inicia con el proceso de  producción de un boson de Higgs, la partículas entrantes son gluones, uno de cada protón de la colisión. Luego se desintegra en un par de bosones Z  y posteriormente vuelve a desintegrarse en 4 leptones
+Los DataFrames de pandas nos permitiran el análisis discriminado de data. Como podemos observar en la siguiente figura, se presenta un diagrama de Feynman, el cual inicia con el proceso de  producción de un boson de Higgs, la partículas entrantes son gluones, uno de cada protón de la colisión. Luego se desintegra en un par de bosones Z  y posteriormente vuelve a desintegrarse en 4 leptones
 
 <img src="004_signal.PNG">
 
@@ -102,7 +99,7 @@ Con los pasos anteriores verificamos los valores NaN en las columnas asociadas a
 datos_pandas_totales = pd.concat([datos_pandas,datos_pandas2])
 datos_pandas_totales.sort_index(axis = 0, level = 0, inplace = True)
 ```
-Como último paso, realizaremos la obtención de la data en un formato Excel .csv utilizando la codificación siguiente. La última línea de codificación es para descargar el archivo creado, que para nuestro caso se llamará <b>SMHiggsToZZTo4L.csv</b>.
+Como último paso, realizaremos la obtención de la data en un formato .csv utilizando la codificación siguiente. La última línea de codificación es para descargar el archivo creado, que para nuestro caso se llamará <b>SMHiggsToZZTo4L.csv</b>.
 
 ```markdown
 from google.colab import files
