@@ -1,7 +1,7 @@
 ## Desafío: 
 -Generar código/Script para convertir los datasets a formato comercial (se escogió .csv).
 
--Usar solo librerías python comerciales y de libre accsero para análisis de data parcial del Bosón de Higgs.
+-Usar solo librerías python comerciales y de libre acceso para análisis de data parcial del Bosón de Higgs.
 
 -Generar un gráfico en matplotlib (o similar) de la masa invariante de 4 leptones.
 
@@ -67,35 +67,39 @@ Los archivos panda nos permitiran el análisis discriminado de data. Esto es par
 
 <img src="004_signal.PNG">
 
-Las variables de la data se presentan en la siguiente figura:
+Realizamos la extensión .arrays para seleccionar las columnas que contengan especificos según la partícula a analizar.
 
-<img src="005_event.PNG"
-     width="400"
-     height="200">
-
-Luego creamos el vector o matriz que contendrá todas las variables en un arreglo
+### Para datos de muones:
 
 ```markdown
 datos_pandas = events.arrays(['run', 'luminosityBlock', 'event','PV_npvs', 'PV_x', 'PV_y', 'PV_z', 'nMuon', 'Muon_pt', 'Muon_eta', 'Muon_phi', 'Muon_mass', 'Muon_charge', 'Muon_pfRelIso03_all', 'Muon_pfRelIso04_all', 'Muon_dxy', 'Muon_dxyErr', 'Muon_dz', 'Muon_dzErr'], library = 'pd')
 ```
+Visualizaremos los datos escogidos en el panda usando el código:
+```markdown
+datos_pandas
+```
+### Para datos de electrones:
+```markdown
+datos_pandas2 = events.arrays(['run', 'luminosityBlock', 'event','PV_npvs', 'PV_x', 'PV_y', 'PV_z', 'nElectron','Electron_pt', 'Electron_eta', 'Electron_phi', 'Electron_mass', 'Electron_charge', 'Electron_pfRelIso03_all', 'Electron_dxy', 'Electron_dxyErr', 'Electron_dz', 'Electron_dzErr', 'MET_pt', 'MET_phi'], library = 'pd')
+```
+Visualizaremos los datos escogidos en el panda usando el código:
+```markdown
+datos_pandas2
+```
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
+Con los pasos anteriores verificamos los valores NaN en las columnas asociadas a electrones en eventos de muones, y visceversa. Procederemos a realizar la concatenación de datos en un solo archivo, además de ordenar la data por el número de evento.
+```markdown
+datos_pandas_totales = pd.concat([datos_pandas,datos_pandas2])
+datos_pandas_totales.sort_index(axis = 0, level = 0, inplace = True)
+```
 
 
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Luispabon88/luispabon88.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Equipo 10: Los Discípulos del Modelo Estándar - Hackaton 2022 CoAfina
+- Gabriel Barreto
+- Lizbeth Lara
+- Senayda Ortiz
+- Luis Pabón
+- María Porras
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
