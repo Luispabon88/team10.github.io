@@ -328,7 +328,7 @@ asdfghjkkl
 #Realizamos el Histograma
 df_withH_4mu['H_mass'].plot.hist(bins = 36)
   ```
-  
+ <img src="007_primHisto.PNG">
   
 
 
