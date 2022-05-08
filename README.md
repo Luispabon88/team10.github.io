@@ -155,10 +155,11 @@ df_uncer_4mu['rnMuon'] = df_uncer_4mu.groupby(level = 0).run.transform('sum')
 df_uncer_4mu['Muon_Charge_Sum'] = df_uncer_4mu.groupby(level = 0).Muon_charge.transform('sum')
 df_filt_4mu = df_uncer_4mu.loc[(df_uncer_4mu['rnMuon']==4) & (df_uncer_4mu['Muon_Charge_Sum'] == 0.0)]
 ```
-.....
+
 
 ### Segunda fase: Apareamiento de muones que pueden generar un bosón Z
 
+En esta parte es necesario realizar el cálculo matemática
 ```markdown
 #Definimos la función que calcula la masa a partir de 2 cuadrimomentums
 def calc_mass(pt1,eta1,phi1,mass1,pt2,eta2,phi2,mass2):
