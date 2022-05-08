@@ -58,6 +58,8 @@ Como un paso de verificación, se puede usar el código a continuación que perm
 ```markdown
 file['Events'].show()
 ```
+<img src="005_event.PNG">
+
 Declararemos la variable <b>events</b> para proceder a crear los archivos panda.
 ```markdown
 events = file['Events']
@@ -101,8 +103,16 @@ datos_pandas_totales.to_csv('datos_totales.csv', encoding = 'utf-8-sig')
 files.download('datos_totales.csv')
 ```
 ## Procesamiento de datos
+Una vez se tenga la data en un formato sencillo, se puede trabajar con ella para realizar cálculos y gráficas.
+Para cargar este archivo, se utiliza la codificación siguiente. Declaramos la variable <b>datos_desde_csv</b> para colocar el arreglo de datos en el programa.
 
-
+```markdown
+datos_desde_csv = pd.read_csv('datos_totales.csv', index_col = [0,1])
+```
+Lo siguiente es realizar la búsqueda de datos de importancia para el ánalisis.
+```markdown
+df_4mu = datos_desde_csv.loc[datos_desde_csv['nMuon'] >= 4] #numero de muones mayor o igual a 4
+```
 ## Información de Colaboradores
 ### Equipo 10: Los Discípulos del Modelo Estándar - Hackaton 2022 CoAfina
 - Gabriel Barreto
