@@ -9,7 +9,7 @@
 
 ##Codificación
 
-Hemos obtenido la data desde el sitio web [opendata CERN](http://opendata.web.cern.ch/record/12361)
+Hemos obtenido la data desde el sitio web [opendata CERN](http://opendata.web.cern.ch/record/12361), donde usando la herramienta colaborativa de Google desde el Google Drive, se ha originado un archivo codificado en Python.
 
 
 You can use the [editor on GitHub](https://github.com/Luispabon88/luispabon88.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
