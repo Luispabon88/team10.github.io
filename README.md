@@ -67,13 +67,18 @@ Los archivos panda nos permitiran el análisis discriminado de data. Esto es par
 
 <img src="004_signal.PNG">
 
-
-
-
+Realizamos la extensión .arrays para seleccionar las columnas que contengan datos de muones:
 
 ```markdown
-prueba
+datos_pandas = events.arrays(['run', 'luminosityBlock', 'event','PV_npvs', 'PV_x', 'PV_y', 'PV_z', 'nMuon', 'Muon_pt', 'Muon_eta', 'Muon_phi', 'Muon_mass', 'Muon_charge', 'Muon_pfRelIso03_all', 'Muon_pfRelIso04_all', 'Muon_dxy', 'Muon_dxyErr', 'Muon_dz', 'Muon_dzErr'], library = 'pd')
 ```
+
+Visualizaremos los datos escogidos en el panda usando el código:
+```markdown
+datos_pandas
+```
+
+
 
 ### Markdown
 
