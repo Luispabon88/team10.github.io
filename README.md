@@ -320,7 +320,16 @@ asdfgehbzcxhjz
 #Colocamos los datos calculados en el DataFrame
 df_withH_4mu = df_cutZ_4mu.groupby(level = 0).apply(create_H)
   ```
+asdfghjkkl
 
+### Graficación de datos obtenidos
+
+```markdown
+#Realizamos el Histograma
+df_withH_4mu['H_mass'].plot.hist(bins = 36)
+  ```
+  
+  
 
 
 
