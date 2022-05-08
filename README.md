@@ -63,7 +63,7 @@ Declararemos la variable <b>events</b> para proceder a crear los archivos panda.
 events = file['Events']
 ```
 
-Los archivos panda nos permitiran el análisis discriminado de data. Esto es para poder separar los eventos donde se detectan muones y electrones. Como podemos observar en la siguiente figura, se presenta un diagrama de Feyman, el cual inicia con el proceso de  producción de un boson de Higgs, la partículas entrantes son gluones, uno de cada protón de la colisión. Luego se desintegra en un par de bosones Z  y posteriormente vuelve a desintegrarse en 4 leptones
+Los archivos panda nos permitiran el análisis discriminado de data. Esto es para poder separar los eventos donde se detectan muones y electrones. Como podemos observar en la siguiente figura, se presenta un diagrama de Feynman, el cual inicia con el proceso de  producción de un boson de Higgs, la partículas entrantes son gluones, uno de cada protón de la colisión. Luego se desintegra en un par de bosones Z  y posteriormente vuelve a desintegrarse en 4 leptones
 
 <img src="004_signal.PNG">
 
