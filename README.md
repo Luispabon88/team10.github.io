@@ -7,6 +7,7 @@
 
 ## Codificación
 ### Generar código/Script para convertir los datasets a formato comercial.
+
 Hemos obtenido la data desde el sitio web [opendata CERN](http://opendata.web.cern.ch/record/12361), donde usando la herramienta colaborativa de Google desde el Google Drive, se ha originado un archivo codificado en Python. El archivo obtenido es un .ROOT, el cual no es comercial ni fácil de utilizar directamente, lo cual limita su uso. Uno de los objetivos principales de nuestro trabajo es crear un código en Python que convierta este .ROOT en un archivo separado por comas en EXCEL, el cual permita la difusión del trabajo y deje la data al alcance de todos.
 
 Lo primero que debemos hacer es instalar en el Google Drive la herramienta Colaboratory, disponible en la sección de más herramientas al dar click en el <b>+</b> de Google Drive en la parte superior izquierda.
@@ -94,7 +95,7 @@ Con los pasos anteriores verificamos los valores NaN en las columnas asociadas a
 datos_pandas_totales = pd.concat([datos_pandas,datos_pandas2])
 datos_pandas_totales.sort_index(axis = 0, level = 0, inplace = True)
 ```
-Como último paso, realizaremos la obtención de la data en un formato Excel .csv utilizando la codificación:
+Como último paso, realizaremos la obtención de la data en un formato Excel .csv utilizando la codificación siguiente. La última línea de codificación es para descargar el archivo creado, que para nuestro caso se llamará <b>datos_totales.csv</b>.
 
 ```markdown
 from google.colab import files
@@ -102,6 +103,7 @@ from google.colab import files
 datos_pandas_totales.to_csv('datos_totales.csv', encoding = 'utf-8-sig') 
 files.download('datos_totales.csv')
 ```
+
 ## Procesamiento de datos
 Una vez se tenga la data en un formato sencillo, se puede trabajar con ella para realizar cálculos y gráficas.
 Para cargar este archivo, se utiliza la codificación siguiente. Declaramos la variable <b>datos_desde_csv</b> para colocar el arreglo de datos en el programa.
