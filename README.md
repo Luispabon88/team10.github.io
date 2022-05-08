@@ -15,8 +15,10 @@ Hemos obtenido la data desde el sitio web [opendata CERN](http://opendata.web.ce
 Lo primero que debemos hacer es instalar en el Google Drive la herramienta Colaboratory, disponible en la sección de más herramientas al dar click en el <b>+</b> de Google Drive en la parte superior izquierda.
 
 <img src="001_instalarColGoogle.png"
+     align="center"
      width="400"
-     height="300">
+     height="300"
+     >
 
 Dentro de Market Place, buscamos la aplicación Colaboratory (en la imagen siguiente se muestra que ya está instalada).
 
