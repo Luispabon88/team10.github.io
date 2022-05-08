@@ -69,7 +69,10 @@ Los archivos panda nos permitiran el análisis discriminado de data. Esto es par
 
 Las variables de la data se presentan en la siguiente figura:
 
-<img src="005_event.PNG">
+<img src="005_event.PNG"
+     width="400"
+     height="200">
+
 Luego creamos el vector o matriz que contendrá todas las variables en un arreglo
 
 ```markdown
