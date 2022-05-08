@@ -158,7 +158,9 @@ df_filt_4mu = df_uncer_4mu.loc[(df_uncer_4mu['rnMuon']==4) & (df_uncer_4mu['Muon
 
 Luego de haber separado los eventos de interés, procederemos a elegir los 2 muones de carga contraria y que además al sumar sus energías y momentums podemos acercarnos a la masa del bosón Z de acuerdo a la siguiente ecuación:
 
-<img src="momentum_and_energy_sum.PNG">
+<img src="momentum_and_energy_sum.png">
+
+Los datos del CERN vienen en vectores de momentum en 4D (cuadrimomentums) con la métrica (-,-,-,+)
 
 ```markdown
 #Definimos la función que calcula la masa a partir de 2 cuadrimomentums
@@ -350,10 +352,4 @@ df_withH_4mu['H_mass'].plot.hist(bins = 36)
 - Senayda Ortiz
 - Luis Pabón
 - María Porras
-
-### Recursos utilizados
-- Datos utilizados para análisis: DOI:10.7483/OPENDATA.CMS.8FLU.UIQJ
-- Recursos de Google: Drive, Colaboratory
-- GitHub
-Todos los derechos reservados a sus creadores. Este documento es con fines educativos.
 
