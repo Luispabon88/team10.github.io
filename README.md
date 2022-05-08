@@ -156,7 +156,10 @@ df_filt_4mu = df_uncer_4mu.loc[(df_uncer_4mu['rnMuon']==4) & (df_uncer_4mu['Muon
 
 ### Segunda fase: Apareamiento de muones que pueden generar un bosón Z
 
-Luego de haber separado los eventos de interés, procederemos a elegir los 2 muones de carga contraria y que además al sumar sus energías y momentums podemos acercarnos a la masa del bosón Z.
+Luego de haber separado los eventos de interés, procederemos a elegir los 2 muones de carga contraria y que además al sumar sus energías y momentums podemos acercarnos a la masa del bosón Z de acuerdo a la siguiente ecuación:
+
+<img src="momentum_and_energy_sum.PNG">
+
 ```markdown
 #Definimos la función que calcula la masa a partir de 2 cuadrimomentums
 def calc_mass(pt1,eta1,phi1,mass1,pt2,eta2,phi2,mass2):
