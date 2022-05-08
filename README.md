@@ -7,9 +7,11 @@
 
 -Generar un gráfico en matplotlib (o similar) de la masa invariante de 4 leptones.
 
-##Codificación
+## Codificación
 
-Hemos obtenido la data desde el sitio web [opendata CERN](http://opendata.web.cern.ch/record/12361), donde usando la herramienta colaborativa de Google desde el Google Drive, se ha originado un archivo codificado en Python.
+Hemos obtenido la data desde el sitio web [opendata CERN](http://opendata.web.cern.ch/record/12361), donde usando la herramienta colaborativa de Google desde el Google Drive, se ha originado un archivo codificado en Python. El archivo obtenido es un .ROOT, el cual no es comercial ni fácil de utilizar directamente, lo cual limita su uso. Uno de los objetivos principales de nuestro trabajo es crear un código en Python que convierta este .ROOT en un archivo separado por comas en EXCEL, el cual permita la difusión del trabajo y deje la data al alcance de todos.
+
+Lo primero que realizamos es instala las librerias
 
 
 You can use the [editor on GitHub](https://github.com/Luispabon88/luispabon88.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
