@@ -44,15 +44,15 @@ from google.colab import files
 uploaded = files.upload()
 ```
 Debemos verificar que el archivo termine de cargarse correctamente. Para esto, deberemos observar el progreso y que la barra termine de cargar. La siguiente imagen muestra el mensaje final del proceso:
-
-
-
+```markdown
+<img src="003_100.PNG">
+```
 
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
+
 Syntax highlighted code block
 
 # Header 1
