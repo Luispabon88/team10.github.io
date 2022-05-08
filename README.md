@@ -7,6 +7,11 @@
 
 -Generar un gráfico en matplotlib (o similar) de la masa invariante de 4 leptones.
 
+##Codificación
+
+Hemos obtenido la data desde el sitio web [opendata CERN](http://opendata.web.cern.ch/record/12361)
+
+
 You can use the [editor on GitHub](https://github.com/Luispabon88/luispabon88.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
