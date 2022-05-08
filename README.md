@@ -223,7 +223,9 @@ df_bestZ_4mu = df_filt_4mu.groupby(level = 0).apply(best_Z)
 
 En esta fase calculamos la separación entre los muones que deseamos utilizar para reconstruir el bosón Z. Para eso utilizamos el parámetro Delta R que viene dado por
 
+<img src="delta_R.png">
 
+El siguiente código realiza este cálculo.
 
   ```markdown
 #Creamos una función que calcule la diferencia en pseudorapidez y el ángulo entre 2 vectores
@@ -244,7 +246,7 @@ def distance(df):
   final.set_index(['entry','subentry'], drop = True, inplace = True)
   return final
   ```
-asdfgg
+Luego se eliminan los muones que son cercanos. Para ello tomamos de referencia el valor de Delta_R
 
 ```markdown
 #Se eliminan los muones que son cercanos en pseudorapidez y ángulo
@@ -257,6 +259,8 @@ df_f_deltaR_4mu = df_cut_deltaR_4mu.loc[(df_cut_deltaR_4mu['rrnMuon']==4)].copy(
   ```
 
 ### Cuarta Fase: Calcular la masa de bosón Z a partir de muones
+
+En esta fase ya calculamos la masa de los bosones Z a partir de los 4 muones seleccionados en cada evento.
 
 ```markdown
 #Creamos una función para crear la masa de los bosones Z
@@ -280,7 +284,7 @@ def create_Z(df):
   return final
   ```
   
-  asdfg
+  Aplicamos la función creada a los datos.
   
   ```markdown
   #Aplicamos la función
@@ -288,6 +292,7 @@ df_withZ_4mu = df_f_deltaR_4mu.groupby(level = 0).apply(create_Z)
   ```
 
 ### Quinta fase: Seleccionar Z que pueden ser bosón de Higgs
+Los bosones Z que hemos encontrado y estan en los extremos con muy poca energía o mucha energía los descartamos.
    ```markdown
   #Eliminamos los eventos que no tienen bosones de Higgs en el rango (12,120)
 df_cutZ_4mu = df_withZ_4mu.loc[(df_withZ_4mu['Z_mass'] > 12) & (df_withZ_4mu['Z_mass'] < 120)].copy()
@@ -296,9 +301,10 @@ df_cutZ_4mu = df_withZ_4mu.loc[(df_withZ_4mu['Z_mass'] > 12) & (df_withZ_4mu['Z_
 df_cutZ_4mu['rrrnMuon'] = df_cutZ_4mu.groupby(level = 0).run.transform('sum')
 df_cutZ_4mu = df_cutZ_4mu.loc[(df_cutZ_4mu['rrrnMuon']==4)]
   ```
-asdfg
 
 ### Sexta Fase: Recrear la masa del bosón de Higgs
+
+Finalmente con los 4 muones calculamos la masa que debería tener el boson de Higgs que decayó y dió lugar a los 4 muones que hemos seleccionado en cada evento.
 
  ```markdown
 #Realizamos una función que cálcule la masa del Boson de Higgs a partir de 4 leptones
@@ -333,14 +339,16 @@ def create_H(df):
   final.set_index(['entry','subentry'], drop = True, inplace = True)
   return final
   ```
-asdfgehbzcxhjz
+Finalmente aplicamos las funciones a los datos
 ```markdown
 #Colocamos los datos calculados en el DataFrame
 df_withH_4mu = df_cutZ_4mu.groupby(level = 0).apply(create_H)
   ```
-asdfghjkkl
+y llegamos a la etapa más esperada, graficar los datos y ver si estamos cerca de encontrar el Boson de Higgs
 
 ### Graficación de datos obtenidos
+
+Finalmente logramos hacer la siguiente gráfica. En este caso la realizamos rápidamente con las mismas funciones de Pandas (que son heredadas de matplotlib.pyplot)
 
 ```markdown
 #Realizamos el Histograma
@@ -348,14 +356,15 @@ df_withH_4mu['H_mass'].plot.hist(bins = 36)
   ```
  <img src="007_primHisto.PNG">
   
+En el histograma, podemos ver que la mayor cantidad de eventos son justamente muy cercanos a los 125 GeV. ¡Y esto coincide con el Bosón de Higgs!
 
 
+## ¿Qué falta?
+El reto fue desarrollado por 5 físicos con poca experiencia previa en manejo de datos con pandas. Pero ahora que finalmente dominamos todas las fases ahora podriamos:
+-Adaptar el código para otros eventos para la reproducir el Bosón de Higgs, como lo son los eventos de 4 electrones o eventos de 2 muones y 2 electrones
+-Realizar las gráficas en conjunto de todos estos eventos
 
 
-
-```markdown
-
-  ```
 
 
 ## Información de Colaboradores
