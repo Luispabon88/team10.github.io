@@ -362,7 +362,7 @@ En el histograma, podemos ver que la mayor cantidad de eventos son justamente mu
 ## ¿Qué falta?
 El reto fue desarrollado por 5 físicos con poca experiencia previa en manejo de datos con pandas. Pero ahora que finalmente dominamos todas las fases ahora podriamos:
 
--Adaptar el código para otros eventos para la reproducir el Bosón de Higgs, como lo son los eventos de 4 electrones o eventos de 2 muones y 2 electrones
+-Adaptar el código para otros eventos para la reproducción el Bosón de Higgs, como lo son los eventos de 4 electrones o eventos de 2 muones y 2 electrones
 
 -Realizar las gráficas en conjunto de todos estos eventos
 
