@@ -119,7 +119,12 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 ```
-
+Debemos realizar la carga del archivo al Goolge Colaboratory:
+```markdown
+from google.colab import files
+uploaded = files.upload()
+```
+Al ejecutarse, nuevamente se mostrarán dos botones, de los cuales, <b>"Encontrar Archivo"</b> le permitirá subir el archivo con extensión .csv requerido. En nuestro caso será <b>SMHiggsToZZTo4L.csv</b> obtenido en la procedimiento anterior.
 
 
 
