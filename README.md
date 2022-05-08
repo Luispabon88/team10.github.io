@@ -160,7 +160,12 @@ Luego de haber separado los eventos de interés, procederemos a elegir los 2 muo
 
 <img src="momentum_and_energy_sum.png">
 
-Los datos del CERN vienen en vectores de momentum en 4D (cuadrimomentums) con la métrica (-,-,-,+)
+Los datos del CERN vienen en vectores de momentum en 4D (cuadrimomentums) con la métrica (-,-,-,+) de la siguiente forma
+
+<img src="cuadrimomentum.png">
+
+donde pt es el momentum transverso, eta la pseudorapidez, phi el \'angulo de azimuth y m la masa. Para poder pasar estos vectores al vector de cuadrimomentum en coordenadas cartesianas, debemos hacer.
+
 
 ```markdown
 #Definimos la función que calcula la masa a partir de 2 cuadrimomentums
