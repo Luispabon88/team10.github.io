@@ -351,3 +351,9 @@ df_withH_4mu['H_mass'].plot.hist(bins = 36)
 - Luis Pabón
 - María Porras
 
+### Recursos utilizados
+- Datos utilizados para análisis: DOI:10.7483/OPENDATA.CMS.8FLU.UIQJ
+- Recursos de Google: Drive, Colaboratory
+- GitHub
+Todos los derechos reservados a sus creadores. Este documento es con fines educativos.
+
